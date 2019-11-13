@@ -1,0 +1,36 @@
+import requests, bs4, pandas as pd, numpy as np
+ 
+
+### 2. 웹페이지 소스 가져오기
+
+#웹페이지 html 소스 가져오기
+resp = requests.get('https://www.timeanddate.com/holidays/south-korea')
+resp.encoding='utf-8'
+html = resp.text
+bs = bs4.BeautifulSoup(html, 'html.parser')
+
+### 3. 기본정보 스크랩
+
+contents=bs.select('table  > tbody > tr')
+dfcontent=[]
+alldfcontents=[]
+
+### 4. 데이터 마이닝
+
+for content in contents:
+    tds=content.findAll("td")
+    ths=content.findAll("th")
+    for th in ths:
+        dfcontent.append(th.text)
+    for td in tds:
+        dfcontent.append(td.text)
+    alldfcontents.append(dfcontent)
+    dfcontent=[]
+    
+
+### 5. 정제된 데이터 셋 생성
+
+df=pd.DataFrame(data=alldfcontents)
+
+df.columns = ["DATE","WEEK","HOLIDAY_NAME","HOLIDAY_TYPE"]
+df.head()
