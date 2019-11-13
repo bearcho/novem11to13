@@ -1,0 +1,98 @@
+
+프로젝트 범위
+1. 가입시 나이, 성별, 요금제 사용금액, 월청구금액, 월 데이터 사용량 기준으로 요금제 추천
+ - 알고리즘 별 정확도 확인 후 사용
+
+2. 월 사용량 데이터로 익월 사용 요금제 추천
+ - 알고리즘 별 정확도 확인 후 사용
+
+
+svd : 링크
+https://www.fun-coding.org/recommend_basic6.html
+https://m.blog.naver.com/PostView.nhn?blogId=cjh226&logNo=220885732785&proxyReferer=https%3A%2F%2Fwww.google.com%2F
+https://cmdlinetips.com/2019/05/singular-value-decomposition-svd-in-python/
+https://machinelearningmastery.com/singular-value-decomposition-for-machine-learning/
+https://scikit-learn.org/stable/modules/classes.html#module-sklearn.decomposition
+https://leebaro.tistory.com/entry/SVD%EB%A5%BC-%EC%9D%B4%EC%9A%A9%ED%95%9C-%EC%B6%94%EC%B2%9C-%EC%8B%9C%EC%8A%A4%ED%85%9C-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
+https://moons08.github.io/data%20science/svd/
+http://blog.naver.com/PostView.nhn?blogId=dudu0903&logNo=80196425163
+https://alsoj.tistory.com/160
+https://www.fun-coding.org/recommend_basic7.html
+
+ - 데이터 시각화 툴
+클릭뷰, 클릭 센스.
+구글 데이터 스튜디오
+tableau
+키바나
+엘라스틱서치
+
+kaggle
+
+seaborn
+
+onehot incoding -> catecorical_corosseentropy
+label -> sparse_categorical_crossentropy
+
+모델 생성 시 파라미터를 작게 잡아 훈련시 sensitive한 정확도 산출
+
+
+import datetime
+yearweekInt = datetime.date(2019,11,11).isocalendar()
+str(tearweekInt[0] + str(yearweekInt[1])
+
+
+https://docs.python.org/3/library/datetime.html
+
+- emptydf.append ( 생성데이터프레임, columns = {emmptydf컬럼과 동일하게} , ingnore_index=True)
+- empty 데이터프레임 생성 pd.DataFrame( columns=[“aa”,’bb”])
+- 데이터베이스 활용 (마지막 단계 시)- postgresql 또는 mariadb 설치 후 입/출력 데이터 활용
+
+
+
+요금제의 지속성
+
+
+
+TB_ORG_DATA_JOIN
+
+TB_CUST_DATA
+TB_USE_DATA
+TB_PROD_DATA
+
+
+- TB_USE_DATA(계약별 사용량)
+#USE_YYMM                int64  --사용월
+#CTRT_ID                object    --계약ID
+PROD_ID                object     --상품ID
+PROD_NM                object    --상품명
+ORDER_TP                int64     --개통유형
+ACT_DTTM                int64     --게통일
+PROMOTION_NM           object  --정책id
+USE_VOICE               int64   --음성사용량
+USE_OVER_VOICE_AMT    float64  --음성초과사용금액
+USE_SMS                 int64   --문자사용량
+USE_OVER_SMS_AMT        int64  --문자초과사용금액
+USE_DATA                int64   --데이터사용량
+USE_OVER_DATA_AMT     float64 --데이터초과사용금액
+TOTAL_AMT               int64   --월 총 사용금액
+
+TB_PROD_DATA(상품 정보)
+#PROD_ID                object  --상품ID
+PROD_NM                object  --상품명
+PROD_AMT                int64   --상품 금액
+PROD_VOICE              int64  --상품 음성공제량
+PROD_SMS                int64  --상품 문자공제량
+PROD_DATA               int64  --상품 데이터공제량
+DATA_LIMIT_YN           int64  --상품 데이터무제한 여부
+
+TB_CUST_DATA(고객 정보)
+#CUST_ID                object --고객ID
+CUST_TP                object  --고객유형
+SEX_TP                 object   --성별
+BIRTH_DT                int64  --생년월일
+AGE                     int64   --나이
+SEX_NUM                 int64  --성별(숫자화)
+
+
+
+['AGE_NORM', 'SEX_NUM_NORM', 'TOTAL_AMT_NORM',PROD_AMT_NORM','USE_DATA_NORM
